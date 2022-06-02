@@ -1,0 +1,17 @@
+.contact-img {
+  width: 150px;
+  border-radius: 50%;
+  border: solid black 2px;
+}
+
+.contact-img-big {
+  width: 250px;
+  border-radius: 50%;
+  border: solid black 2px;
+}
+
+.addcontactIMG {
+  width: 20px;
+  border-radius: 50%;
+  border: solid black 2px;
+}
