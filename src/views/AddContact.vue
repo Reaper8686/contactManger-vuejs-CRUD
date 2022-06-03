@@ -3,11 +3,12 @@
     <h3>Add Contacts</h3>
     <hr />
     <div class="row">
-      <form action="">
+      <form action="" @submit.prevent="onSubmit">
         <div class="col-sm-8">
           <div class="row">
             <div class="col-sm-6 my-3">
               <input
+                v-model="contacts.name"
                 type="text"
                 name="name"
                 id=""
@@ -17,6 +18,7 @@
             </div>
             <div class="col-sm-6 my-3">
               <input
+                v-model="contacts.email"
                 type="email"
                 name="email"
                 id=""
@@ -26,6 +28,7 @@
             </div>
             <div class="col-sm-6 my-3">
               <input
+                v-model="contacts.mobile"
                 type="number"
                 name="mobile"
                 id=""
@@ -35,6 +38,7 @@
             </div>
             <div class="col-sm-6 my-3">
               <input
+                v-model="contacts.photo"
                 type="text"
                 name="photo"
                 id=""
@@ -44,6 +48,7 @@
             </div>
             <div class="col-sm-6 my-3">
               <input
+                v-model="contacts.campany"
                 type="text"
                 name="campany"
                 id=""
@@ -53,6 +58,7 @@
             </div>
             <div class="col-sm-6 my-3">
               <input
+                v-model="contacts.title"
                 type="text"
                 name="title"
                 id=""
@@ -61,8 +67,20 @@
               />
             </div>
             <div class="col-sm-6 my-3">
-              <select name="group" id="" class="form-control">
+              <select
+                v-model="contacts.groupId"
+                name="group"
+                id=""
+                class="form-control"
+              >
                 <option value="">Select group</option>
+                <option
+                  :value="group.id"
+                  v-for="group in groups"
+                  :key="group.id"
+                >
+                  {{ group.name }}
+                </option>
               </select>
             </div>
 
@@ -77,8 +95,44 @@
 </template>
 
 <script>
+import { getAllGroups, addContact } from "../../apicalls/apicalls";
 export default {
   name: "AddContact",
+  data: function () {
+    return {
+      contacts: {
+        name: "",
+        email: "",
+        mobile: "",
+        photo: "",
+        campany: "",
+        title: "",
+        groupId: "",
+      },
+      groups: [],
+    };
+  },
+  methods: {
+    onSubmit: async function () {
+      try {
+        let response = await addContact(this.contacts);
+        if (response) {
+          return this.$router.push("/");
+        }
+        this.$router.push("/addcontacts");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  created: async function () {
+    try {
+      let response = await getAllGroups();
+      this.groups = response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 </script>
 

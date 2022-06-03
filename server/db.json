@@ -1,0 +1,50 @@
+{
+  "contacts": [
+    {
+      "id": "D6BNdWnHI",
+      "name": "Brad Gibson",
+      "company": "Codemymobile",
+      "email": "brad@gmail.com",
+      "title": "Youtuber",
+      "mobile": 43234,
+      "photo": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0g8R5VmgqDqpRCwQfw2Y9V-DM-iXS59R9hQ&usqp=CAU",
+      "groupId": "3"
+    },
+    {
+      "id": "TVobxekbI",
+      "name": "Glenda Kim",
+      "company": "Codemymobile",
+      "email": "glenda@gmail.com",
+      "title": "freelancer",
+      "mobile": 8880009991324324,
+      "photo": " https://www.kindpng.com/picc/m/163-1636340_user-avatar-icon-avatar-transparent-user-icon-png.png",
+      "groupId": "2"
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "Colleague"
+    },
+    {
+      "id": "2",
+      "name": "Friend"
+    },
+    {
+      "id": "3",
+      "name": "Family"
+    },
+    {
+      "id": "4",
+      "name": "Service"
+    },
+    {
+      "id": "5",
+      "name": "Comunity"
+    },
+    {
+      "id": "6",
+      "name": "Social"
+    }
+  ]
+}
